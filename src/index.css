@@ -9,6 +9,9 @@
   --primary-accent-color: rgb(255, 127, 80);
 }
 
+li {
+  list-style: none;
+}
 button {
   border: none;
   background: none;
@@ -63,6 +66,10 @@ header {
   margin-bottom: 20px;
 }
 
+.card h3 {
+  text-align: center;
+}
+
 .card.reverse {
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
@@ -100,4 +107,95 @@ header {
 
 .card.card.reverse .delete-feedback:hover {
   color: rgba(255, 255, 255, 1);
+}
+
+.input-container {
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+  width: 90%;
+  margin-inline: auto;
+}
+
+input[type='text'] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  outline: 1.4px solid rgba(94, 94, 94, 0.2);
+  border-radius: 8px;
+}
+
+input[type='text'].error {
+  outline: 2px solid red;
+}
+
+input[type='text'].success {
+  outline: 2px solid rgb(1, 206, 1);
+}
+
+.input-container .btn {
+  position: absolute;
+  right: 3px;
+  top: calc(2.4px);
+}
+
+.btn {
+  background-color: #111;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: #111;
+}
+
+.btn-secondary {
+  background-color: var(--primary-accent-color);
+}
+
+.btn:hover:not([disabled]) {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.message {
+  text-align: start;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: red;
+}
+
+.ratings {
+  margin-block: 28px;
+  justify-content: center;
+  gap: 7px;
+  row-gap: 14px;
+  flex-wrap: wrap;
+}
+.ratings input {
+  display: none;
+}
+
+.ratings label {
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #111;
+  cursor: pointer;
+}
+
+.ratings input:checked + label {
+  color: #fff;
+  background-color: var(--primary-accent-color);
 }
