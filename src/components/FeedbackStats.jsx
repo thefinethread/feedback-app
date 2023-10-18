@@ -16,7 +16,7 @@ const FeedbackStats = ({ feedbacks }) => {
 FeedbackStats.propTypes = {
   feedbacks: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       rating: PropTypes.number,
       text: PropTypes.string,
     })
