@@ -11,6 +11,7 @@ const FeedbackForm = ({ addFeedback }) => {
   const [isDisabled, setIsDisabled] = useState(true);
   const [message, setMessage] = useState('');
 
+  // set default states for states
   const setDefaultStates = () => {
     setIsDisabled(true);
     setMessage('');
@@ -72,8 +73,8 @@ const FeedbackForm = ({ addFeedback }) => {
 };
 
 FeedbackForm.propTypes = {
-  text: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
+  text: PropTypes.string,
+  rating: PropTypes.number,
 };
 
 export default FeedbackForm;
