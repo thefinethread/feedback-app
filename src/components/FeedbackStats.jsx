@@ -11,7 +11,7 @@ const FeedbackStats = () => {
   return (
     <div className="feedback-stats flex">
       <div>{feedbacks.length} Reviews</div>
-      <div>Average Rating: {isNaN(average) ? 0 : average}</div>
+      <div>Average Rating: {isNaN(average) ? 0 : +average.toFixed(1)}</div>
     </div>
   );
 };

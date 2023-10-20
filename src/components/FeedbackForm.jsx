@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import RatingSelect from './RatingSelect';
 import Card from './shared/Card';
@@ -6,13 +6,24 @@ import Button from './shared/Button';
 import FeedbackContext from './context/FeedbackContext';
 
 const FeedbackForm = () => {
-  const { addFeedback } = useContext(FeedbackContext);
+  const { addFeedback, updateFeedback, feedbackEdit } =
+    useContext(FeedbackContext);
 
   const [inputClass, setInputClass] = useState('');
   const [text, setText] = useState('');
   const [rating, setRating] = useState(10);
   const [isDisabled, setIsDisabled] = useState(true);
   const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    if (feedbackEdit.edit) {
+      setText(feedbackEdit.feedback.text);
+      setRating(feedbackEdit.feedback.rating);
+      setIsDisabled(false);
+      setMessage('');
+      setInputClass('success');
+    }
+  }, [feedbackEdit]);
 
   // set default states for states
   const setDefaultStates = () => {
@@ -41,10 +52,18 @@ const FeedbackForm = () => {
     e.preventDefault();
 
     if (text.trim().length > 10) {
-      addFeedback({
-        text,
-        rating,
-      });
+      if (feedbackEdit.edit) {
+        updateFeedback({
+          id: feedbackEdit.feedback.id,
+          text,
+          rating,
+        });
+      } else {
+        addFeedback({
+          text,
+          rating,
+        });
+      }
 
       // reset to default
       setText('');
@@ -66,7 +85,7 @@ const FeedbackForm = () => {
             value={text}
           />
           <Button isDisabled={isDisabled} type="submit" version="primary">
-            Send
+            {feedbackEdit.edit ? 'Update' : 'Add'}
           </Button>
           <div className="message">{message}</div>
         </div>
