@@ -1,13 +1,20 @@
 import { RiCloseLine } from 'react-icons/ri';
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Card from './shared/Card';
+import FeedbackContext from './context/FeedbackContext';
 
-const Feedback = ({ item, handleDelete }) => {
+const Feedback = ({ item }) => {
+  const { deleteFeedback } = useContext(FeedbackContext);
+
   return (
     <Card>
       <div className="rating-container flex">{item.rating}</div>
       <p>{item.text}</p>
-      <button className="delete-feedback" onClick={() => handleDelete(item.id)}>
+      <button
+        className="delete-feedback"
+        onClick={() => deleteFeedback(item.id)}
+      >
         <RiCloseLine />
       </button>
     </Card>

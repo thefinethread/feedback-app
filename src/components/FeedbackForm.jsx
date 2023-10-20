@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import RatingSelect from './RatingSelect';
 import Card from './shared/Card';
 import Button from './shared/Button';
+import FeedbackContext from './context/FeedbackContext';
 
-const FeedbackForm = ({ addFeedback }) => {
+const FeedbackForm = () => {
+  const { addFeedback } = useContext(FeedbackContext);
+
   const [inputClass, setInputClass] = useState('');
   const [text, setText] = useState('');
   const [rating, setRating] = useState(10);
