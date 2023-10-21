@@ -135,6 +135,7 @@ header {
 input[type='text'] {
   width: 100%;
   padding: 12px;
+  padding-right: 90px;
   border: none;
   outline: 1.4px solid rgba(94, 94, 94, 0.2);
   border-radius: 8px;
@@ -217,9 +218,8 @@ input[type='text'].success {
 
 .about-page-link {
   font-size: 3rem;
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
+  position: absolute;
+  right: 20px;
   z-index: 2;
   color: var(--primary-accent-color);
   cursor: pointer;
