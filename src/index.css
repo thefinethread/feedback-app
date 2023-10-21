@@ -227,6 +227,6 @@ input[type='text'].success {
 
 .about {
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   align-items: start;
 }
